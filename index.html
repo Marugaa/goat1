@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f0fdf4;
+      color: #065f46;
+    }
+    header, footer {
+      background-color: #047857;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+    h1, h2 {
+      color: #047857;
+    }
+    .card {
+      background-color: #d1fae5;
+      padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #a7f3d0;
+      border-radius: 0.75rem;
+    }
+    .btn {
+      background-color: #047857;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background-color: #065f46;
+    }
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><i class="fas fa-home"></i> My Portfolio</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="text-center">
+      <h1>Welcome to My Website</h1>
+      <p>I'm a passionate Computer Science graduate offering a range of digital services.</p>
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I'm a recent Computer Science graduate with a strong interest in web development, software engineering,
+        and emerging technologies. I enjoy creating impactful digital solutions that solve real-world problems.
+      </p>
+    </section>
+
+    <section id="cv">
+      <h2><i class="fas fa-file-alt"></i> Curriculum Vitae</h2>
+      <p>Download my full CV below:</p>
+      <a href="cv.pdf" class="btn" target="_blank">Download CV</a>
+    </section>
+
+    <section id="services">
+      <h2><i class="fas fa-laptop-code"></i> Services I Offer</h2>
+      <div class="services">
+        <div class="card">Web Development</div>
+        <div class="card">Mobile App Development</div>
+        <div class="card">UI/UX Design</div>
+        <div class="card">Technical Support</div>
+        <div class="card">Software Testing</div>
+        <div class="card">Database Management</div>
+        <div class="card">IT Consulting</div>
+        <div class="card">System Analysis</div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2><i class="fas fa-envelope"></i> Contact Me</h2>
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+      <p id="form-status" style="margin-top: 1rem; color: green;"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> My Portfolio. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple form handling simulation
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      document.getElementById('form-status').textContent = 'Message sent successfully!';
+      this.reset();
+    });
+  </script>
+</body>
+</html>
